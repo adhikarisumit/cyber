@@ -1,17 +1,162 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Kanji to Furigana Converter</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XEWDG2NJV5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XEWDG2NJV5');
+</script>
+  <link rel="alternate" hreflang="es"
+       href="https://japonesbasico.com/furigana/" />
+  <link rel="alternate" hreflang="en"
+       href="https://japonesbasico.com/furigana/?lang=en" />
+  <link rel="alternate" hreflang="ja"
+       href="https://japonesbasico.com/furigana/?lang=ja" />     
+  <link rel="alternate" hreflang="x-default"
+       href="https://japonesbasico.com/furigana/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Kanji to kanji with furigana converter</title>
+
+<link rel="icon" href="https://japonesbasico.com/wp-content/uploads/2018/07/cropped-sello-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://japonesbasico.com/wp-content/uploads/2018/07/cropped-sello-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://japonesbasico.com/wp-content/uploads/2018/07/cropped-sello-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://japonesbasico.com/wp-content/uploads/2018/07/cropped-sello-1-270x270.png" />  
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,90,700;0,95,380;1,90,700;1,95,380&display=swap" rel="stylesheet">
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4518801158238274",
+          enable_page_level_ads: true
+     });
+</script>    
 </head>
-<body>
-  <div class="container">
-    <h1>Kanji to Furigana Converter</h1>
-    <textarea id="inputText" placeholder="Enter your Kanji text here"></textarea>
-    <button id="convertButton">Convert</button>
-    <div id="outputText"></div>
+<body bgcolor="#EFF7FF" >
+
+<div style="display: table; width: 100%; height: 100%; border: 0px solid red !important;">
+
+<div style="display: table-row; width: 100%;">
+    <div style="display: table-cell; width: 100%; height: 120px; vertical-align: middle;">
+  <center>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4518801158238274"
+     crossorigin="anonymous"></script>
+<!-- Generado Top Dinámico -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4518801158238274"
+     data-ad-slot="2480233789"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+  </center>
   </div>
-  <script src="script.js"></script>
+</div>
+<div style="display: table-row; height: 100%; width: 100%;";>
+    <div align="center" style="display: table-cell; vertical-align: middle; border: 0px solid blue !important;">
+  
+<div class="marco">
+<!--Comienza contendio-->
+
+<h1>Kanji to kanji with furigana converter</h1>
+<div class="pequeno" style="text-align: center;"><a href='.'>Ver en español</a> / <a href='?lang=ja'>日本語版</a></div>
+
+<p>This program adds furigana automatically to all the kanji of a Japanese text. You can use it to read texts with kanji you don't know yet and learn them.</p>
+<center><p>残酷な天使のテーゼ ➡️ <ruby>残酷<rt>ざんこく</rt></ruby>な<ruby>天使<rt>てんし</rt></ruby>の<ruby>テーゼ<rt>てーぜ</rt></ruby></p></center>
+<center>
+
+<h3>Japanese text with Kanji <div onclick="pasteFromClipboard()" style="display: inline-block; cursor: pointer;" title="Pegar desde el portapapeles">📋</div> </h3>
+
+<textarea id="japaneseText" style="width: 90%;" rows=6 placeholder="Write or paste your text here."></textarea>
+<br/>
+
+<button id="button" class="boton" onclick="sendPostRequest('furigana')">Add Furigana</button> 
+<button id="button" class="boton" onclick="sendPostRequest('romaji')">Change to rōmaji</button>
+</center>
+<hr>
+    <div id="results">
+<center>The results will be displayed here.</center><hr><h3>What is Furigana?</h3>
+<p>Furigana is the name given to the letters that are placed on top of kanji to indicate their reading, in order to serve as a phonetic guide, as in the following cases:</p>
+
+<li> The word is uncommon. <ruby>懸念<rt>けねん</rt></ruby>,  <ruby>辟易<rt>へきえき</rt></ruby>
+<li> Certain characters are given an unusual reading. <ruby>宇宙<rt>そら</rt></ruby>, <ruby>地球<rt>ほし</rt></ruby>
+<li> For texts intended for children.
+<li> For texts intended for foreigners learning Japanese.
+<li> As an aid in reference books such as dictionaries or encyclopedias.  </div>
+
+<script>
+function sendPostRequest(conversion) {
+  let japaneseText = document.getElementById('japaneseText').value;
+
+  document.getElementById('results').innerHTML = "<center>⌛ Cargando...</center>";
+
+  fetch('https://japonesbasico.com/furigana/procesa.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      japaneseText: japaneseText,
+      conversion: conversion,
+      lang: 'en'
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('results').innerHTML = data;
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+  
+function pasteFromClipboard() {
+  navigator.clipboard.readText().then(function(clipText) {
+    document.getElementById("japaneseText").value = clipText;
+  });
+}
+
+function hideFirstColumn() {
+  var table = document.querySelector('#results table');
+  var rows = table.getElementsByTagName('tr');
+  
+  for (var i = 0; i < rows.length; i++) {
+  var cells = rows[i].getElementsByTagName('td');
+  if (cells.length > 0) {
+    cells[0].style.display = 'none';
+  }
+  }
+
+  var button = document.getElementById('hideButton');
+  button.style.display = 'none';
+}
+
+</script>
+
+<!--Fin del Contenido-->
+</div> <!--Cierra marco -->
+
+  </div> <!--Cierra celda media -->
+</div> <!--Cierra columna media -->
+
+
+</div>
+
 </body>
 </html>
