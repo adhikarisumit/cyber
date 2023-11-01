@@ -1,15 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const inputText = document.getElementById("inputText");
-  const convertButton = document.getElementById("convertButton");
-  const outputText = document.getElementById("outputText");
+function sendPostRequest(conversion) {
+  let japaneseText = document.getElementById('japaneseText').value;
 
-  convertButton.addEventListener("click", function () {
-    const kanjiText = inputText.value;
+  document.getElementById('results').innerHTML = "<center>⌛ Cargando...</center>";
 
-    // Implement your Kanji to Furigana conversion logic here
-    // This is where you would analyze the input text and generate Furigana
-
-    // For a basic example, just display the same text for now
-    outputText.textContent = kanjiText;
+  fetch('https://japonesbasico.com/furigana/procesa.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      japaneseText: japaneseText,
+      conversion: conversion,
+      lang: 'en'
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('results').innerHTML = data;
+  })
+  .catch((error) => {
+    console.error('Error:', error);
   });
-});
+}
+  
+function pasteFromClipboard() {
+  navigator.clipboard.readText().then(function(clipText) {
+    document.getElementById("japaneseText").value = clipText;
+  });
+}
+
+function hideFirstColumn() {
+  var table = document.querySelector('#results table');
+  var rows = table.getElementsByTagName('tr');
+  
+  for (var i = 0; i < rows.length; i++) {
+  var cells = rows[i].getElementsByTagName('td');
+  if (cells.length > 0) {
+    cells[0].style.display = 'none';
+  }
+  }
+
+  var button = document.getElementById('hideButton');
+  button.style.display = 'none';
+}
+
